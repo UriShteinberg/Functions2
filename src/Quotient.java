@@ -3,22 +3,17 @@ public class Quotient extends Function{
     private Function g;
 
     public Quotient(Function f, Function g){
-        if(g.toString().equals(new Constant(0).toString())){
-            System.out.println("exception: return to this!");
-        }
-        else{
             this.f = f;
             this.g = g;
-        }
     }
 
     @Override
     public double valueAt(double x){
         double gx = g.valueAt(x);
-        if (gx==0) {
-            System.out.println("exception: return to this!");
-        }
-        return f.valueAt(x) / g.valueAt(x);
+//        if (gx==0) {
+//            System.out.println("exception: return to this!");
+//        }
+        return f.valueAt(x) / gx;
     }
 
     @Override

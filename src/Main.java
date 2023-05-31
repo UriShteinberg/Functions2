@@ -46,5 +46,19 @@ public class Main {
         System.out.println(a_divide_b);
         System.out.println(a_divide_b.derivative().toString());
         System.out.println();
+
+        Function a_pow_n = new Power(a, 4);
+        System.out.println("a^n");
+        System.out.println(a_pow_n.valueAt(3.5));
+        System.out.println(a_pow_n);
+        System.out.println(a_pow_n.derivative().toString());
+        System.out.println();
+
+        Function b_divide_zero = new Quotient(b, new Constant(0));
+        System.out.println("b/0");
+        System.out.println(b_divide_zero.valueAt(3.5));
+        System.out.println(b_divide_zero);
+        System.out.println(b_divide_zero.derivative().toString());
+        System.out.println();
     }
 }

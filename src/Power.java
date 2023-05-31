@@ -10,15 +10,22 @@ public class Power extends Function{
     @Override
     public double valueAt(double x) {
         double y = f.valueAt(x);
-        for (int i=0; i<pow; ++i){
-            y*=y;
+        double z = y;
+        for (int i=1; i<pow; ++i){
+            y*=z;
         }
         return y;
     }
 
     @Override
     public String toString() {
-        String res = f.toString()+"^"+pow;
+        String res = f.toString();
+        if(pow==0){
+            return (new Constant(1).toString());
+        } else if (pow==1) {
+            return res;
+        }
+        res+="^"+pow;
         return res;
     }
 
