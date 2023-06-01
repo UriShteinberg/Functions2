@@ -10,8 +10,9 @@ public class Polynomial extends Function{
     }
 
     @Override
-    public int valueAt(int x) {
-        int i = 0, sum = 0;
+    public double valueAt(int x) {
+        int i = 0;
+        double sum = 0;
         for(double coefficient:coefficientsArr){
             sum += Math.pow(coefficient, i);
             i++;
@@ -34,12 +35,12 @@ public class Polynomial extends Function{
             strPoly += String.format(" x");
         if (coArr[1] == -1)
             strPoly += String.format(" -x");
-        if ((coArr[1] == (int) coArr[1]) && coArr[1] != 1 && coArr[1] != -1)
+        if ((coArr[1] == (int) coArr[1]) && coArr[1] != 1 && coArr[1] != -1 && coArr[0] != 0)
             strPoly += String.format(" %dx", (int) coArr[1]);
         else if (coArr[0] != 0)
             strPoly += String.format(" %fx", coArr[1]);
         // handling from pow>2:
-        for (int i = 0; i < coArr.length; i++) {
+        for (int i = 2; i <= coArr.length; i++) {
             if (coArr[i] == 0)
                 continue;
             if (coArr[i] == 1)
