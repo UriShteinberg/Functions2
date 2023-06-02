@@ -1,24 +1,24 @@
-public class Difference extends MultiSum{
-    private Function f;
-    private Function g;
-
-    public Difference(Function f, Function g){
-        super(f, new Negation(g));
-
+public class Constant extends Function {
+    private double con;
+    public Constant(double con) {
+        this.con = con;
     }
 
     @Override
-    public double valueAt(double x){
-        return super.valueAt(x);
+    public double valueAt(double x) {
+        return this.con;
     }
 
     @Override
-    public String toString(){
-        return super.toString();
+    public String toString() {
+        if (con==(int)(con))
+            return ("(" + (int)(con) + ")");
+        else
+            return ("(" + this.con + ")");
     }
 
     @Override
-    public Function derivative(){
-        return super.derivative();
+    public Function derivative() {
+        return new Constant(0);
     }
 }

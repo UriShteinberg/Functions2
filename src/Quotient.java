@@ -3,8 +3,8 @@ public class Quotient extends Function{
     private Function g;
 
     public Quotient(Function f, Function g){
-            this.f = f;
-            this.g = g;
+        this.f = f;
+        this.g = g;
     }
 
     @Override
@@ -24,7 +24,7 @@ public class Quotient extends Function{
 
     @Override
     public Function derivative(){
-        Function ng = new MultiProduct(g, g);
+        Function ng = new Power(g, 2);
         Function nf = new Difference(new MultiProduct(f.derivative(), g), new MultiProduct(f, g.derivative()));
         return new Quotient(nf, ng);
     }

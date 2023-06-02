@@ -9,12 +9,7 @@ public class Power extends Function{
     }
     @Override
     public double valueAt(double x) {
-        double y = f.valueAt(x);
-        double z = y;
-        for (int i=1; i<pow; ++i){
-            y*=z;
-        }
-        return y;
+        return Math.pow(f.valueAt(x), this.pow);
     }
 
     @Override
