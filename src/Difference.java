@@ -3,22 +3,22 @@ public class Difference extends MultiSum{
     private Function g;
 
     public Difference(Function f, Function g){
-        super(f, new Negation(g));
+        super(f, g);
 
     }
 
     @Override
     public double valueAt(double x){
-        return super.valueAt(x);
+        return f.valueAt(x) - g.valueAt(x);
     }
 
     @Override
     public String toString(){
-        return super.toString();
+        String res = f.toString() + " - " + g.toString();
     }
 
     @Override
-    public Function derivative(){
-        return super.derivative();
+    public Function derivative() {
+        return new Difference(f.derivative(), g.derivative());
     }
 }
