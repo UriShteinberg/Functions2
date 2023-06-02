@@ -1,24 +1,24 @@
-public class Constant extends Function {
-    private double con;
-    public Constant(double con) {
-        this.con = con;
+public class Difference extends MultiSum{
+    private Function f;
+    private Function g;
+
+    public Difference(Function f, Function g){
+        super(f, g);
+
     }
 
     @Override
-    public double valueAt(double x) {
-        return this.con;
+    public double valueAt(double x){
+        return f.valueAt(x) - g.valueAt(x);
     }
 
     @Override
-    public String toString() {
-        if (con==(int)(con))
-            return ("(" + (int)(con) + ")");
-        else
-            return ("(" + this.con + ")");
+    public String toString(){
+        String res = f.toString() + " - " + g.toString();
     }
 
     @Override
     public Function derivative() {
-        return new Constant(0);
+        return new Difference(f.derivative(), g.derivative());
     }
 }
