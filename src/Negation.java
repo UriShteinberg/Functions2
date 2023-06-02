@@ -12,7 +12,7 @@ public class Negation extends Function{
 
     @Override
     public String toString(){
-        return "-(" + f.toString() + ")";
+        return "(-" + f.toString() + ")";
     }
 
     @Override

@@ -1,9 +1,10 @@
-public class Difference extends MultiSum{
+public class Difference extends Function{
     private Function f;
     private Function g;
 
     public Difference(Function f, Function g){
-        super(f, g);
+        this.f = f;
+        this.g = g;
 
     }
 
@@ -14,7 +15,8 @@ public class Difference extends MultiSum{
 
     @Override
     public String toString(){
-        String res = f.toString() + " - " + g.toString();
+        String res ="(" +  f.toString() + " - " + g.toString() + ")";
+        return res;
     }
 
     @Override
