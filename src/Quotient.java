@@ -25,7 +25,7 @@ public class Quotient extends Function{
     @Override
     public Function derivative(){
         Function ng = new Power(g, 2);
-        Function nf = new Difference(new MultiProduct(f.derivative(), g), new MultiProduct(f, g.derivative()));
+        Function nf = new Difference(new MultiProduct(f.derivative(), g), new MultiProduct( g.derivative(), f));
         return new Quotient(nf, ng);
     }
 
