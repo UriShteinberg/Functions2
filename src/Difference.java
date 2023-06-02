@@ -15,6 +15,7 @@ public class Difference extends MultiSum{
     @Override
     public String toString(){
         String res = f.toString() + " - " + g.toString();
+        return res;
     }
 
     @Override
