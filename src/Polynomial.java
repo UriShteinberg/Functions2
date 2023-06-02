@@ -84,7 +84,7 @@ public class Polynomial extends Function{
         // from here the polynomial is for sure with pow bigger or equal to 2:
         double[] derivativeArr = new double[coArr.length-1];
         for(int i=1; i<coArr.length; i++){
-            derivativeArr[i-1] = i*coArr[i];
+             derivativeArr[i-1] = i*coArr[i];
         }
         return new Polynomial(derivativeArr);
     }

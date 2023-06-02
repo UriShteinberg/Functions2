@@ -69,38 +69,38 @@ public class Main {
         Function const3 = new Constant(-1709);
 
         Function prod1 = new Product(
-                new Sum(
-                        const1,
-                        const2),
-                const3);
+                                     new Sum(
+                                             const1,
+                                             const2),
+                                     const3);
         testFunction(prod1, "prod1", 10);
 
         Function prod2 = new Product(
-                new Sum(
-                        const1,
-                        const2),
-                new Negation(
-                        new Negation(
-                                const3)));
+                                    new Sum(
+                                            const1,
+                                            const2),
+                                    new Negation(
+                                            new Negation(
+                                                         const3)));
         testFunction(prod2, "prod2", 10);
 
         Function diff1 = new Difference(const1, const3);
         testFunction(diff1, "diff1", 10);
 
         Function quotient1 = new Quotient(
-                new Sum(
-                        new Difference(
-                                new Product(
-                                        const1,
-                                        const3),
-                                const2),
-                        new Polynomial(1, 0, 1)),
-                prod1);
+                                          new Sum(
+                                                  new Difference(
+                                                          new Product(
+                                                                  const1,
+                                                                  const3),
+                                                          const2),
+                                                  new Polynomial(1, 0, 1)),
+                                          prod1);
         testFunction(quotient1, "quotient1", 4);
 
         Function multiSum1 = new MultiSum(
-                new Constant(21.03),
-                new Constant(3));
+                                    new Constant(21.03),
+                                    new Constant(3));
         testFunction(multiSum1, "multiSum1", 10);
 
         Function poly1 = new Polynomial(0, 0, 1, 1.5, 2, 3.1415);
@@ -110,22 +110,22 @@ public class Main {
         testFunction(poly2, "poly2", 20);
 
         Function multiSum2 = new MultiSum(
-                new Constant(21.03),
-                poly1,
-                new Constant(5),
-                new Polynomial(3.1415));
+                                    new Constant(21.03),
+                                    poly1,
+                                    new Constant(5),
+                                    new Polynomial(3.1415));
         testFunction(multiSum2, "multiSum2", 10);
 
         Function multiProd1 = new MultiProduct(new Constant(10), new Polynomial(7, 3.5, 2, 1));
         testFunction(multiProd1, "multiProd1", 10);
 
         Function multiProd2 = new MultiProduct(
-                new Constant(3),
-                poly2,
-                new Negation(
-                        new Sum(
-                                new Constant(21),
-                                poly2)));
+                                            new Constant(3),
+                                            poly2,
+                                            new Negation(
+                                                    new Sum(
+                                                            new Constant(21),
+                                                            poly2)));
         testFunction(multiProd2, "multiProd2", 10);
 
         Function pow1 = new Power(poly1, 3);
@@ -141,20 +141,20 @@ public class Main {
         testFunction(quotient2, "quotient2", 8);
 
         Function massiveFunc = new Sum(
-                new MultiSum(quotient1, poly1, poly2),
-                new Negation(
-                        new Sum(
-                                quotient1,
-                                new Quotient(
+                                new MultiSum(quotient1, poly1, poly2),
+                                new Negation(
                                         new Sum(
-                                                new Difference(
-                                                        pow1,
-                                                        const3),
-                                                const2),
-                                        new Negation(
+                                                quotient1,
                                                 new Quotient(
-                                                        new Constant(2.17),
-                                                        new Difference(quotient1, new Negation(poly2))))))));
+                                                        new Sum(
+                                                                new Difference(
+                                                                        pow1,
+                                                                        const3),
+                                                                const2),
+                                                        new Negation(
+                                                                new Quotient(
+                                                                        new Constant(2.17),
+                                                                        new Difference(quotient1, new Negation(poly2))))))));
         testFunction(massiveFunc, "massiveFunc", 5);
 
         testRootFinding();
