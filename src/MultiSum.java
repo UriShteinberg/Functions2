@@ -46,7 +46,7 @@ public class MultiSum extends Function{
     public Function derivative(){
         Function der1 = f1.derivative();
         Function der2 = f2.derivative();
-        Function derivs[] = new Function[funcs.length];
+        Function[] derivs = new Function[funcs.length];
         for (int i = 0; i < len; i++){
             derivs[i] = funcs[i].derivative();
         }
