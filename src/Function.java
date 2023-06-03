@@ -24,14 +24,11 @@ public abstract class Function {
         return this.bisectionMethod(a, b, Math.pow(10, -5));
     }
 
+
     public double newtonRaphsonMethod(double a, double epsilon) {
         double xk = a;
-        double last_xk = xk+2*epsilon;
-        while (Math.abs(xk-last_xk) > epsilon) {
-            last_xk = xk;
-            double yk = valueAt(xk);
-            double y_der_k = this.derivative().valueAt(xk);
-            xk = xk - (yk/y_der_k);
+        while (Math.abs(valueAt(xk)) >= epsilon) {
+            xk = xk - (valueAt(xk) / derivative().valueAt(xk));
         }
         return xk;
     }
