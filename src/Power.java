@@ -9,6 +9,8 @@ public class Power extends Function{
     }
     @Override
     public double valueAt(double x) {
+        if(f.valueAt(x)==0) return 0;
+        else if (f.valueAt(x)==1) return 1;
         return Math.pow(f.valueAt(x), this.pow);
     }
 

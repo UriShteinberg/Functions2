@@ -21,21 +21,23 @@ public abstract class Function {
     }
 
     public double bisectionMethod(double a, double b) {
-        return this.bisectionMethod(a, b, 10^-5);
+        return this.bisectionMethod(a, b, Math.pow(10, -5));
     }
 
     public double newtonRaphsonMethod(double a, double epsilon) {
         double xk = a;
-        double abs_xk = xk > 0 ? xk : -xk;
-        while (abs_xk > epsilon) {
-            xk = xk - (valueAt(xk) / derivative().valueAt(xk));
-            abs_xk = xk > 0 ? xk : -xk;
+        double last_xk = xk+2*epsilon;
+        while (Math.abs(xk-last_xk) > epsilon) {
+            last_xk = xk;
+            double yk = valueAt(xk);
+            double y_der_k = this.derivative().valueAt(xk);
+            xk = xk - (yk/y_der_k);
         }
         return xk;
     }
 
     public double newtonRaphsonMethod(double a) {
-        return this.newtonRaphsonMethod(a, 10^-5);
+        return this.newtonRaphsonMethod(a, Math.pow(10, -5));
     }
 
     public Function taylorPolynomial(int n) {
