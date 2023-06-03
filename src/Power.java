@@ -20,7 +20,7 @@ public class Power extends Function{
         } else if (pow==1) {
             return res;
         }
-        res+="^"+pow;
+        res=("(" +res+ "^" +pow+ ")");
         return res;
     }
 

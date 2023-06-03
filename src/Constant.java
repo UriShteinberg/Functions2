@@ -18,7 +18,7 @@ public class Constant extends Function {
     }
 
     @Override
-    public Function derivative() {
+    public Constant derivative() {
         return new Constant(0);
     }
 }

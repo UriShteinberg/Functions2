@@ -14,7 +14,7 @@ public class Polynomial extends Function{
         int i = 0;
         double sum = 0;
         for(double coefficient:coefficientsArr){
-            sum += coefficient*Math.pow(x, i);
+            sum += (coefficient*Math.pow(x, i));
             i++;
         }
         return sum;
@@ -54,11 +54,11 @@ public class Polynomial extends Function{
         double[] coArr = this.coefficientsArr; //it's a pointer, just for readability
         // handling first coefficient:
         if ((coArr[0]==(int) coArr[0]) && (coArr[0]!=0)){
-            strPoly += (String.format("%d", (int) coArr[0]));
+            strPoly += (int) coArr[0];
             firstEntered = true;
         }
         else if (coArr[0] != 0) {
-            strPoly += (String.format("%f", coArr[0]));
+            strPoly += coArr[0];
             firstEntered = true;
         }
         for (int i=1; i<coArr.length; i++) {
@@ -70,15 +70,13 @@ public class Polynomial extends Function{
                 strPoly += (toStringConvertor(coArr[i], i, false));
             }
         }
-        if(strPoly=="")
+        if(strPoly.equals(""))
             return "(0)";
         return ("(" +strPoly+ ")");
     }
 
-
-
     @Override
-    public Polynomial derivative() {
+    public Function derivative() {
         double[] coArr = this.coefficientsArr; //it's a pointer, just for readability
         if(coArr.length < 2) return new Polynomial(0);
         // from here the polynomial is for sure with pow bigger or equal to 2:
@@ -90,9 +88,12 @@ public class Polynomial extends Function{
     }
 //    @Override
 //    public Polynomial taylorPolynomial(int n){
-//        double[] newArr = new double[this.coefficientsArr.length-n];
-//        for(int i=0; i<=this.coefficientsArr.length-n; i++){
-//            newArr[i] = this.coefficientsArr[i];
+//        double[] newArr = new double[n+1];
+//        for(int i=0; i<=n; i++){
+//            if(i<this.coefficientsArr.length)
+//                newArr[i] = this.coefficientsArr[i];
+//            else
+//                newArr[i] = 0;
 //        }
 //        return new Polynomial(newArr);
 //    }

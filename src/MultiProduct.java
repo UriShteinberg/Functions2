@@ -45,9 +45,9 @@ public class MultiProduct extends Function{
     public Function derivative(){
         Function der1 = new MultiProduct(f1.derivative(), f2, funcs);
         Function der2 = new MultiProduct(f2.derivative(), f1, funcs);
-        Function derivs[] = new Function[funcs.length];
+        Function[] derivs = new Function[funcs.length];
         for (int i = 0; i < len; i++){
-            Function multis[] = funcs;
+            Function[] multis = funcs.clone();
             multis[i] = funcs[i].derivative();
             derivs[i] = new MultiProduct(f1, f2, multis);
         }

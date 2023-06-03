@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 public abstract class Function {
     public abstract double valueAt(double x);
 
@@ -36,10 +37,11 @@ public abstract class Function {
     public double newtonRaphsonMethod(double a) {
         return this.newtonRaphsonMethod(a, 10^-5);
     }
-    public Function taylorPolynomial(int n) {
+
+    public Polynomial taylorPolynomial(int n) {
         double []coefficientArr = new double[n+1];
         Function function = this;
-        int factorial = 1;
+        double factorial = 1;
         for(int i=0; i<=n; i++){
             coefficientArr[i] = (function.valueAt(0))/factorial;
             function = function.derivative();

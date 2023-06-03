@@ -9,11 +9,7 @@ public class Quotient extends Function{
 
     @Override
     public double valueAt(double x){
-        double gx = g.valueAt(x);
-//        if (gx==0) {
-//            System.out.println("exception: return to this!");
-//        }
-        return f.valueAt(x) / gx;
+        return (f.valueAt(x) / g.valueAt(x));
     }
 
     @Override
@@ -23,7 +19,7 @@ public class Quotient extends Function{
 
 
     @Override
-    public Function derivative(){
+    public Quotient derivative(){
         Function ng = new Power(g, 2);
         Function nf = new Difference(new MultiProduct(f.derivative(), g), new MultiProduct( g.derivative(), f));
         return new Quotient(nf, ng);
