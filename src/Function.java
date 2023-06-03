@@ -38,7 +38,7 @@ public abstract class Function {
         return this.newtonRaphsonMethod(a, 10^-5);
     }
 
-    public Polynomial taylorPolynomial(int n) {
+    public Function taylorPolynomial(int n) {
         double []coefficientArr = new double[n+1];
         Function function = this;
         double factorial = 1;

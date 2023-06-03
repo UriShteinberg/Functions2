@@ -7,7 +7,7 @@ public class MultiProduct extends Function{
     public MultiProduct(Function f1, Function f2, Function... funcs){
         this.f1 = f1;
         this.f2 = f2;
-        this.funcs = funcs.clone();
+        this.funcs = funcs;
         this.len = funcs.length;
         for (int i=0; i < len; ++i){
             this.funcs[i] = funcs[i];
@@ -41,20 +41,48 @@ public class MultiProduct extends Function{
         return res + ")";
     }
 
+//    @Override
+//    public Function derivative(){
+//        Function der1 = new MultiProduct(f1.derivative(), f2, funcs);
+//        if(len==0){
+//            Function der2 = new MultiProduct(f2.derivative(), f1);
+//            return new MultiSum(der1, der2);
+//        }
+//        Function f3 = funcs[0];
+//        Function[] funcs2 = new Function[len-1];
+//        for(int i=1; i<len; ++i){
+//            funcs2[i-1] = funcs[i];
+//        }
+//        Function temp = new MultiProduct(f2, f3, funcs2);
+//        temp = temp.derivative();
+//        Function der2 = new MultiProduct(temp, f1);
+//        return new MultiSum(der1, der2);
+//    }
+//
+
+
+
     @Override
     public Function derivative(){
         Function der1 = new MultiProduct(f1.derivative(), f2, funcs);
         Function der2 = new MultiProduct(f2.derivative(), f1, funcs);
         Function[] derivs = new Function[funcs.length];
         for (int i = 0; i < len; i++){
-            Function[] multis = funcs.clone();
-            multis[i] = funcs[i].derivative();
+            Function[] multis = funcs.clone(); // find alternative to the clone!!
+            multis[0] = funcs[i].derivative();
+            for (int j=1; j < len; ++j){
+                if(j==i) continue;
+                else if (j<i) {
+                    multis[j] = funcs[j-1];
+                }
+                else {
+                    multis[j] = funcs[j];
+                }
+            }
             derivs[i] = new MultiProduct(f1, f2, multis);
         }
         return new MultiSum(der1, der2, derivs);
     }
-}
-
 
 //    @Override
 //    public Function derivative(){
@@ -66,3 +94,5 @@ public class MultiProduct extends Function{
 //        }
 //        return new MultiSum(derivs);
 //    }
+
+}
