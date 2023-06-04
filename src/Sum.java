@@ -1,6 +1,5 @@
 public class Sum extends MultiSum{
-    private Function f;
-    private Function g;
+    private Function[] functions;
 
     public Sum(Function f, Function g){
         super(f, g);
