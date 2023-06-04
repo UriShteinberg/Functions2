@@ -1,11 +1,24 @@
 import java.math.BigDecimal;
 public abstract class Function {
 
+    /**
+     *
+     * @param x: the point to calculate the value by
+     * @return double - the value of x in the function
+     */
     public abstract double valueAt(double x);
 
+    /**
+     *
+     * @return the String representation of the function
+     */
     @Override
     public abstract String toString();
 
+    /**
+     *
+     * @return a new function - the derivative of the function
+     */
     public abstract Function derivative();
 
     /**

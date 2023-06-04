@@ -17,6 +17,10 @@ public class Date {
             this.day = 1;
     }
 
+    /**
+     *
+     * @return hashcode of Date - the sum of the values, each at a different product of 10
+     */
     @Override
     public int hashCode(){
         return (this.year*10000) + (this.month*100) + (this.day);
@@ -29,6 +33,10 @@ public class Date {
             return false;
     }
 
+    /**
+     *
+     * @return a String representing the Date
+     */
     @Override
     public String toString() {
         return String.format("%02d/%02d/%04d", this.day, this.month, this.year);

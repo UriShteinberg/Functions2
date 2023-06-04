@@ -20,7 +20,13 @@ public class Polynomial extends Function{
         return sum;
     }
 
-
+    /**
+     *
+     * @param coefficient: the corresponding coefficient of the specific part
+     * @param pow: the corresponding power of the specific part
+     * @param firstEntered: if were at the first x of the polynomial
+     * @return the proper String format of the specific part of the polynomial
+     */
     public static String toStringConvertor(double coefficient, int pow, boolean firstEntered){
         String str = "";
         if(coefficient>0){
@@ -86,15 +92,5 @@ public class Polynomial extends Function{
         }
         return new Polynomial(derivativeArr);
     }
-//    @Override
-//    public Polynomial taylorPolynomial(int n){
-//        double[] newArr = new double[n+1];
-//        for(int i=0; i<=n; i++){
-//            if(i<this.coefficientsArr.length)
-//                newArr[i] = this.coefficientsArr[i];
-//            else
-//                newArr[i] = 0;
-//        }
-//        return new Polynomial(newArr);
-//    }
+
 }

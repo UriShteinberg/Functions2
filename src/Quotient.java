@@ -18,6 +18,10 @@ public class Quotient extends Function{
     }
 
 
+    /**
+     *
+     * @return a power function derivative according to the formula (f`(x)*g(x)-g`(x)*f(x))/(g(x)^2)
+     */
     @Override
     public Quotient derivative(){
         Function ng = new Power(g, 2);

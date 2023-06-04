@@ -24,6 +24,10 @@ public class Power extends Function{
         return res;
     }
 
+    /**
+     *
+     * @return a power function derivative according to the formula n*f(x)^(n-1)
+     */
     @Override
     public Function derivative() {
         if(this.pow==1)

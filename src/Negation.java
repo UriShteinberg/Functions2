@@ -4,7 +4,7 @@ public class Negation extends Function{
     public Negation(Function f){
         this.f = f;
     }
-
+    //the negation contains a "not negated" function and negates single-handedly at each method.
     @Override
     public double valueAt(double x){
         return f.valueAt(x)*-1;

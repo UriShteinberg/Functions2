@@ -2,7 +2,7 @@ public class MultiSum extends Function{
     private Function[] functions;
 
     public MultiSum(Function... functions){
-        if (functions.length < 2)
+        if (functions.length < 2) //confirmation - the Multisum receives at least two base functions
             this.functions = new Function[]{new Constant(0)};
         else {
             this.functions = new Function[functions.length];

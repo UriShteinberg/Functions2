@@ -2,7 +2,7 @@ public class MultiProduct extends Function {
     private Function[] functions;
 
     public MultiProduct(Function... functions) {
-        if (functions.length < 2)
+        if (functions.length < 2) //confirmation - the Multiprod receives at least two base functions
             this.functions = new Function[]{new Constant(0)};
         else {
             this.functions = new Function[functions.length];
@@ -36,10 +36,9 @@ public class MultiProduct extends Function {
 
     /**
      *the function computes the multi-product derivative, general idea:
-     *  if the function is a multiplication of two functions just skip to else and use
-     * the regular formula d/dx [ f(x) * g(x) ] = f'(x) * g(x) + g'(x) * f(x)
-     * otherwise it
-     * @return
+     *  the function creates extra arrays to store each derivative, and then combines them according
+     *  to the multi product formula
+     * @return the Multisum derivative of the function.
      */
     @Override
     public Function derivative(){
