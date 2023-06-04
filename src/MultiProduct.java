@@ -34,6 +34,13 @@ public class MultiProduct extends Function {
         return res + ")";
     }
 
+    /**
+     *the function computes the multi-product derivative, general idea:
+     *  if the function is a multiplication of two functions just skip to else and use
+     * the regular formula d/dx [ f(x) * g(x) ] = f'(x) * g(x) + g'(x) * f(x)
+     * otherwise it
+     * @return
+     */
     @Override
     public Function derivative(){
         int len = this.functions.length;
